@@ -1,60 +1,52 @@
 package ru.netology.stats;
 
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class StatsServiceTest {
+    private StatsService service = new StatsService();
+    private int[] managerSales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
-    @org.junit.jupiter.api.Test
+    // проверяю сумму значений массива
+    @Test
     void shouldCalculateSum() {
-        StatsService service = new StatsService();
-        int[] managerSales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected = 180;
-        int actual = service.calcSum(managerSales);
-        assertEquals(expected, actual);
+
+        assertEquals(180, service.calcSum(managerSales));
     }
 
-    @org.junit.jupiter.api.Test
+    //проверяю среднее значение
+    @Test
     void shouldCalcMean() {
-        StatsService service = new StatsService();
-        int[] managerSales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected = 15;
-        int actual = service.calcMean(managerSales);
-        assertEquals(expected, actual);
+
+        assertEquals(15, service.calcMean(managerSales));
     }
 
-    @org.junit.jupiter.api.Test
+    //проверяю номер месяца с максимальным значением
+    @Test
     void shouldCalcCurrentMax() {
-        StatsService service = new StatsService();
-        int[] managerSales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected = 8;
-        int actual = service.currentMax(managerSales);
-        assertEquals(expected, actual);
+
+        assertEquals(8, service.currentMax(managerSales));
     }
 
-    @org.junit.jupiter.api.Test
+    //проверяю номер месяца с минимальным значением
+    @Test
     void shouldCalcCurrentMin() {
-        StatsService service = new StatsService();
-        int[] managerSales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected = 9;
-        int actual = service.currentMin(managerSales);
-        assertEquals(expected, actual);
+
+        assertEquals(9, service.currentMin(managerSales));
     }
 
-    @org.junit.jupiter.api.Test
+    //проверяю количество месяцев с значением меньше среднего
+    @Test
     void shouldCalcBelowAverage() {
-        StatsService service = new StatsService();
-        int[] managerSales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected = 5;
-        int actual = service.belowAverage(managerSales);
-        assertEquals(expected, actual);
+
+        assertEquals(5, service.belowAverage(managerSales));
     }
 
-    @org.junit.jupiter.api.Test
+    //проверяю количество месяцев с значением больше среднего
+    @Test
     void shouldCalcAboveAverage() {
-        StatsService service = new StatsService();
-        int[] managerSales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected = 5;
-        int actual = service.belowAverage(managerSales);
-        assertEquals(expected, actual);
+
+        assertEquals(5, service.aboveAverage(managerSales));
     }
 }
